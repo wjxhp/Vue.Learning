@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for = "item in letters">{{item}}</li>
+        </ul>
+        <button @click = "btnClick">按钮</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                letters : ['A','B','C','F','D','E']
+            },
+            methods: {
+                btnClick(){
+                    //1.push方法   在数组最后添加一个元素
+                    //this.letter.push('aaa')
+
+                    //2.pop():删除数组的最后一个元素
+                    //this.letters.pop();
+
+                    //3.shift():删除数组中的第一个元素
+                    // this.letters.shift();
+
+                    //4.unshift():在数组最前面添加元素
+                    //this.letters.unshift()
+                    //this.letters.unshift('aaa','bbb','ccc')
+
+                    //5splice作用：删除元素/插入元素/替换元素
+                    // this.letters.splice(2) 从第2个（不包括第2）开始，删除后面的元素
+                    // this.letters.splice(1,2) 删除  从第1个（不包括1）之后的2个元素
+                    // this.letters.splice(1,2,22,2,'eee')  替换  从第1个（不包括1） 后的2个元素都替换成1个元素成后面的元素   如：现在把2 3 的元素替换成了 22 2 eee这三个
+
+
+                    //6.sort()  排序
+                    // this.letters.sort()
+
+                    //7.reverse() 反转
+                    // this.letters.reverse()
+
+
+                    //8.通过索引值修改数组的元素  这个方法不支持响应式  
+                    // this.letters[0] = 'bbbb'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

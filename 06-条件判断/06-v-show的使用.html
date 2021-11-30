@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if:当条件为false时，包含v-if指令的元素，根本就不会存在dom中 -->
+        <h2 v-if = isShow id="aaa">{{message}}</h2>
+        <!-- v-show：当条件为false时，v-show只是给我们的元素添加一个行内样式：display：none -->
+        <!-- 频繁显示  隐藏的时候 使用这个  因为存在dom元素中，这样效率更高 -->
+        <h2 v-show = isShow id="bbb">{{message}}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好呀',
+                isShow : true,
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

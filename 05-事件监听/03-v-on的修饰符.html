@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1. .stop修饰符的使用    阻止事件冒泡 -->
+        <div @click="divClick">
+            <button @click.stop = "btnClick">按钮</button>
+        </div>
+        <!-- 2. .prevent修饰符的使用  阻止默认事件 如 这里当提交会自动提交到action并且跳转  
+        使用这个就可以阻止这个默认事件-->
+        <br>
+        <form action="http://www.baidu.com">
+            <input type="submit" value = "提交" @click.prevent = "submitClick">
+        </form>
+
+        <!--3. 监听某个键盘的键帽 -->
+        <!-- @keyup是监听所有键帽   但是keyup.enter只会监听enter键的事件 -->
+        <input type="text" name="" id="" @keyup.enter = "keyUp">
+
+        <!-- 自定义在组件native 监听组件根元素的原生事件 （学到组件再说）-->
+        <br>
+        <!-- 4.   .once修饰符的使用  只触发一次 -->
+        <button @click.once = "btn2Click">按钮2</button>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                btnClick(){
+                    console.log("btnClick");
+                },
+                divClick(){
+                    console.log("divClick");
+                },
+                submitClick(){
+                    console.log("submitClick++++");
+                },
+                keyUp(){
+                    console.log("keyUp");
+                },
+                btn2Click(){
+                    console.log("----------");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

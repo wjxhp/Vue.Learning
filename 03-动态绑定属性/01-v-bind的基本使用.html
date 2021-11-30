@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgURL" alt="">
+        <a v-bind:href="aHref">百度一下</a>
+        <!--语法糖-->
+        <img :src="imgURL" alt="">
+        <a :href="aHref">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',     
+            data: {
+                message : '你好呀',
+                imgURL : 'http://imgcps.jd.com/img-cubic/creative_server_cib/v2/2000366/100007843661/'+
+                'FocusFullshop/CkRqZnMvdDEvMTk2Nzg5LzIzLzEyMjQ4LzEyMzE1OC82MGU2YjYwN0VlM2Y5NGQ1My9lYTk4ZTdj'+
+                'NWEwYTIxNzE2LnBuZxIJMi10eV8wXzUzMAI47ot6QhYKEnVzbWlsZeeUteWKqOeJmeWItxAAQhAKDOi0reeJqeeLguasohABQhAKDOeri-WNs-aKoui0rRACQgoKBueyvumAiRAHWM2uusf0Ag/cr/s/q.jpg',
+                aHref : 'http://www.baidu.com',
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

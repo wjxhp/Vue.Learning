@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h2 :style = "{key(属性名):value(属性值)}">{{message}}</h2> -->
+        <!-- '50px'必须加上单引号，否则当作一个变量去解析 -->
+        <h2 :style = "{fontSize:'50px'}">{{message}}</h2>
+
+
+        <!-- finalSize当成一个变量使用 -->
+        <h2 :style = "{fontSize:finalSize,color : finalColor}">{{message}}</h2>
+        <!-- 这里int+varchar类型会自动转换 -->
+        <h2 :style = "{fontSize:finSize + 'px'}">{{message}}</h2>
+
+        <h2 :style = getStyle()>{{message}}</h2>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好呀',
+                finalSize : '100px',
+                finSize : '100',
+                finalColor : 'red',
+            },
+            methods: {
+                getStyle :function(){
+                    return {fontSize:this.finalSize,color : this.finalColor}
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
